@@ -5,7 +5,8 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   var select = document.getElementById("horn-select");
   var image = document.getElementsByTagName("img");
-  var audio = document.getElementsByTagName("audio")
+  var audio = document.getElementsByTagName("audio");
+  var slider = document.getElementById("volume");
   
   //change pics and set audio when selected
   select.addEventListener('change', function(){
@@ -24,5 +25,20 @@ function init() {
     }
   });
 
-  //change audio volume
+  //change volume
+  console.log(image[1].src);
+  slider.addEventListener('input', function(){
+    if(volume.value == 0){
+      image[1].src = "assets/icons/volume-level-0.svg";
+    }
+    else if(volume.value < 33){
+      image[1].src = "assets/icons/volume-level-1.svg";
+    }
+    else if(volume.value < 67){
+      image[1].src = "assets/icons/volume-level-2.svg";
+    }
+    else{
+      image[1].src = "assets/icons/volume-level-3.svg";
+    }
+  });
 }
