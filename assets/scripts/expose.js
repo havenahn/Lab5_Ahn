@@ -8,6 +8,8 @@ function init() {
   var audio = document.getElementsByTagName("audio");
   var slider = document.getElementById("volume");
   var button = document.getElementsByTagName("button");
+
+  const jsConfetti = new JSConfetti();
   
   //change pics and set audio when selected
   select.addEventListener('change', function(){
@@ -45,6 +47,9 @@ function init() {
 
   //play sound when clicked
   button[0].addEventListener('click', function(){
+    if(select.selectedOptions[0].value === "party-horn"){
+      jsConfetti.addConfetti();
+    }
     audio[0].play();
   });
 }
