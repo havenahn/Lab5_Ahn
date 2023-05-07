@@ -7,6 +7,7 @@ function init() {
   var image = document.getElementsByTagName("img");
   var audio = document.getElementsByTagName("audio");
   var slider = document.getElementById("volume");
+  var button = document.getElementsByTagName("button");
   
   //change pics and set audio when selected
   select.addEventListener('change', function(){
@@ -27,7 +28,7 @@ function init() {
 
   //change volume
   slider.addEventListener('input', function(){
-    audio.volume = volume.value / 100;
+    audio[0].volume = volume.value / 100;
     if(volume.value == 0){
       image[1].src = "assets/icons/volume-level-0.svg";
     }
@@ -42,5 +43,8 @@ function init() {
     }
   });
 
-  
+  //play sound when clicked
+  button[0].addEventListener('click', function(){
+    audio[0].play();
+  });
 }
