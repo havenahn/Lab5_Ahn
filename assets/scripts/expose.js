@@ -26,8 +26,8 @@ function init() {
   });
 
   //change volume
-  console.log(image[1].src);
   slider.addEventListener('input', function(){
+    audio.volume = volume.value / 100;
     if(volume.value == 0){
       image[1].src = "assets/icons/volume-level-0.svg";
     }
@@ -41,4 +41,6 @@ function init() {
       image[1].src = "assets/icons/volume-level-3.svg";
     }
   });
+
+  
 }
